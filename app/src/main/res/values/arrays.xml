@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="notes">
+        <item>хлеб</item>
+        <item>соль</item>
+        <item>отчаяние</item>
+            </string-array>
+
+    <string-array name="bringHome">
+        <item>взять ржаной хлеб</item>
+        <item>купить крупную соль</item>
+        <item>попробовать избавится от отчаяния через алкоголь</item>
+    </string-array>
+
+</resources>
