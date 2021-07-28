@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="notes">
+        <item>хлеб</item>
+        <item>соль</item>
+        <item>отчаяние</item>
+        <item>колени</item>
+
+
+            </string-array>
+
+    <string-array name="descripShort">
+        <item>взять ржаной хлеб</item>
+        <item>купить крупную соль</item>
+        <item>В пятерке Вискарь по акции</item>
+        <item>просклонять слово колени</item>
+    </string-array>
+    <string-array name="descripFull">
+        <item>купить крутого хлеба на углу. черствый не брать</item>
+        <item>крупную соль, сам намолю. Взять дорогую, один раз живем</item>
+        <item>попробовать избавится от отчаяния через алкоголь</item>
+        <item>просклонять слово колени, говорят полезно для чего то. я не понял, моё дело делать</item>
+    </string-array>
+
+    <array name="pictures">
+        <item>@drawable/shop</item>
+        <item>@drawable/drunk</item>
+    </array>
+
+</resources>
