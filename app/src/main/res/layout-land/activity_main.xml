@@ -6,7 +6,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
-        android:name="ru.geekbrains.fragmentnotes.notesList"
+        android:name="ru.geekbrains.fragmentnotes.NotesList"
 android:layout_weight="1"
 
         android:layout_width="0px"

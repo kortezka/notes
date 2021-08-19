@@ -6,15 +6,28 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ItemViewHolder> {
     private CardsSource dataSource;
     private OnClickListener listener;
+    private Fragment fragment;
+    private int menuPosition;
 
-    public Adapter(CardsSource dataSource) {
+    public Adapter( Fragment fragment) {
+
+        this.fragment = fragment;
+    }
+
+    public void setDataSource(CardsSource dataSource){
         this.dataSource = dataSource;
+        notifyDataSetChanged();
+    }
+
+    public int getMenuPosition() {
+        return menuPosition;
     }
 
     public void setListener(OnClickListener listener) {
@@ -38,6 +51,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ItemViewHolder> {
 
     @Override
     public int getItemCount() {
+
         return dataSource.size();
 
     }
@@ -56,6 +70,23 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ItemViewHolder> {
             title = itemView.findViewById(R.id.textView);
             description = itemView.findViewById(R.id.textView2);
             title.setOnClickListener(v -> listener.onItemClick(getAdapterPosition()));
+            registerContextMenu(itemView);
+            title.setOnLongClickListener(v -> {
+                itemView.showContextMenu(150, 20);
+                menuPosition = getLayoutPosition();
+                return true;
+            });
+        }
+
+
+        private void registerContextMenu(@NonNull View itemView) {
+            if (fragment != null){
+                itemView.setOnLongClickListener(v -> {
+                    menuPosition=getAdapterPosition();
+                    return false;
+                });
+                fragment.registerForContextMenu(itemView);
+            }
         }
 
 

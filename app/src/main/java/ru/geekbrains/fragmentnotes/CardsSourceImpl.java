@@ -14,12 +14,16 @@ public class CardsSourceImpl implements CardsSource {
         this.resources = resources;
     }
 
-    public CardsSourceImpl init() {
+    public CardsSource init(CardsSourceResponse cardsSourceResponse) {
         String[] notes = resources.getStringArray(R.array.notes);
         String[] descriptionsShort = resources.getStringArray(R.array.descripShort);
         String[] descriptionsFull = resources.getStringArray(R.array.descripFull);
         for (int i = 0; i < descriptionsShort.length; i++) {
             dataSource.add(new NoteData(notes[i], descriptionsShort[i], descriptionsFull[i]));
+        }
+
+        if (cardsSourceResponse != null){
+            cardsSourceResponse.initialized(this);
         }
         return this;
 
@@ -34,5 +38,26 @@ public class CardsSourceImpl implements CardsSource {
     public int size() {
         return dataSource.size();
     }
+
+    @Override
+    public void clear() { dataSource.clear();
+
+    }
+
+    @Override
+    public void addNote(NoteData noteData) {
+        dataSource.add(noteData);
+    }
+
+    @Override
+    public void delete(int position) {
+        dataSource.remove(position);
+    }
+    @Override
+    public void update(NoteData noteData,int position) {
+        dataSource.set(position, noteData);
+    }
+
+
 }
 

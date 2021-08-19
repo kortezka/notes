@@ -7,7 +7,7 @@ public class NoteData implements Parcelable {
     private String name;
     private String discriptionShort;
     private String discriptionFull;
-
+    private String id;
 
     public NoteData(String name, String discriptionShort, String discriptionFull) {
         this.name = name;
@@ -28,10 +28,19 @@ public class NoteData implements Parcelable {
         return discriptionFull;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     protected NoteData(Parcel in) {
         discriptionShort = in.readString();
         name = in.readString();
         discriptionFull = in.readString();
+        id = in.readString();
     }
 
     @Override
@@ -39,6 +48,7 @@ public class NoteData implements Parcelable {
         dest.writeString(discriptionShort);
         dest.writeString(name);
         dest.writeString(discriptionFull);
+        dest.writeString(id);
     }
 
     @Override

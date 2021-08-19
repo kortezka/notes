@@ -12,18 +12,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-public class notesDescription extends Fragment {
+public class NotesDescription extends Fragment {
 
     public static final String ARG_NOTE = "NOTE";
 
     private NoteData noteData;
 
-    public notesDescription() {
+    public NotesDescription() {
         // Required empty public constructor
     }
 
-    public static notesDescription newInstance(NoteData noteData) {
-        notesDescription fragment = new notesDescription();
+    public static NotesDescription newInstance(NoteData noteData) {
+        NotesDescription fragment = new NotesDescription();
         Bundle args = new Bundle();
         args.putParcelable(ARG_NOTE, noteData);
         fragment.setArguments(args);
@@ -36,6 +36,7 @@ public class notesDescription extends Fragment {
         if (getArguments() != null) {
             noteData = getArguments().getParcelable(ARG_NOTE);
         }
+
     }
 
     @Override

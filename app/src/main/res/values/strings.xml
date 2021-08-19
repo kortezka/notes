@@ -4,4 +4,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="default_caption">default caption</string>
     <string name="default_description">default description</string>
+    <string name="delete">очистить</string>
+    <string name="refresh">обновить</string>
+    <string name="add">add</string>
+    <string name="kill">удалить</string>
+    <string name="update">изменить</string>
 </resources>
