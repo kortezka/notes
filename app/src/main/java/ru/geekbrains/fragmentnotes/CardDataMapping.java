@@ -9,8 +9,8 @@ public class CardDataMapping {
 
     public static class Fields{
         public final static String CAPTION = "caption";
-        public final static String SHORTDES = "sdes";
-        public final static String FULLDES = "fdes";
+        public final static String SHORTDES = "shortDescrip";
+        public final static String FULLDES = "fullDescrip";
     }
 
     public static NoteData toCardData(String id, Map<String, Object> doc) {

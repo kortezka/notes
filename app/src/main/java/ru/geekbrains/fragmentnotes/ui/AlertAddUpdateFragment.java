@@ -1,12 +1,6 @@
-package ru.geekbrains.fragmentnotes;
+package ru.geekbrains.fragmentnotes.ui;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,34 +10,38 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.Objects;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import ru.geekbrains.fragmentnotes.NoteData;
+import ru.geekbrains.fragmentnotes.R;
 
 
-public class AddUpdateFragment extends Fragment {
+public class AlertAddUpdateFragment extends DialogFragment {
 
 
     public static final String ARG_NOTE = "NOTE";
 
 
-    // TODO: Rename and change types of parameters
     private NoteData noteData;
     String id;
 
-    public AddUpdateFragment() {
+    public AlertAddUpdateFragment() {
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
-    public static AddUpdateFragment newInstance() {
-        AddUpdateFragment fragment = new AddUpdateFragment();
+    public static AlertAddUpdateFragment newInstance() {
+        AlertAddUpdateFragment fragment = new AlertAddUpdateFragment();
         Bundle args = new Bundle();
-        //  args.putParcelable(ARG_NOTE, noteData);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public static AddUpdateFragment newInstance(NoteData noteData) {
-        AddUpdateFragment fragment = new AddUpdateFragment();
+    public static AlertAddUpdateFragment newInstance(NoteData noteData) {
+        AlertAddUpdateFragment fragment = new AlertAddUpdateFragment();
         Bundle args = new Bundle();
         args.putParcelable(ARG_NOTE, noteData);
         fragment.setArguments(args);
@@ -63,12 +61,6 @@ public class AddUpdateFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_add, menu);
-//        int[] res = {R.id.delete, R.id.add, R.id.refresh};
-//        for (int i = 0; i < res.length; i++) {
-//            MenuItem curMenuItem = menu.findItem(res[i]);
-//            curMenuItem.setVisible(false);
-//            curMenuItem.setEnabled(false);
-//        }
 
     }
 
@@ -100,6 +92,7 @@ public class AddUpdateFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        setCancelable(true);
         return inflater.inflate(R.layout.fragment_add_update, container, false);
     }
 
@@ -116,7 +109,6 @@ public class AddUpdateFragment extends Fragment {
             caption.setText(noteData.getName());
             dShort.setText(noteData.getDiscriptionShort());
             dFull.setText(noteData.getDiscriptionFull());
-      //      noteData.setId(noteData.getId());
             id=noteData.getId();
 
         }
@@ -127,7 +119,12 @@ public class AddUpdateFragment extends Fragment {
             Bundle result = new Bundle();
             result.putParcelable("bundleKey", noteData);
             getParentFragmentManager().setFragmentResult("requestKey", result);
-            getActivity (). onBackPressed ();
+            dismiss();
+
+          //  ((MainActivity) requireActivity()).onDialogResult(result);
+//            getParentFragmentManager().
+                    //onDialogResult(result);
+
 
 
         });

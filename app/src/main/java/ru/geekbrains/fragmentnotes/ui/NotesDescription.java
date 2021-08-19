@@ -1,4 +1,4 @@
-package ru.geekbrains.fragmentnotes;
+package ru.geekbrains.fragmentnotes.ui;
 
 import android.os.Bundle;
 
@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import ru.geekbrains.fragmentnotes.NoteData;
+import ru.geekbrains.fragmentnotes.R;
 
 
 public class NotesDescription extends Fragment {

@@ -1,4 +1,4 @@
-package ru.geekbrains.fragmentnotes;
+package ru.geekbrains.fragmentnotes.ui;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import ru.geekbrains.fragmentnotes.CardsSource;
+import ru.geekbrains.fragmentnotes.NoteData;
+import ru.geekbrains.fragmentnotes.R;
 
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ItemViewHolder> {
